@@ -1,0 +1,12 @@
+/* Typography */
+body {
+  font-family: "Arial", sans-serif;
+}
+
+/* Colors */
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+}
+
+/* Other common styles */
