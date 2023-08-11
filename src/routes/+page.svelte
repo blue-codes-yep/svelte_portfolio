@@ -1,18 +1,18 @@
 <script>
-  import Nav from "$lib/Nav.svelte";
+  import Landing from "$lib/Landing.svelte";
   import About from "$lib/About.svelte";
   import Projects from "$lib/Projects.svelte";
   import Contact from "$lib/Contact.svelte";
-  import Footer from "$lib/Footer.svelte"
+  import Skills from "$lib/Skills.svelte";
 </script>
 
-
+<Skills />
+<Landing />
 <div class="container">
   <About />
   <Projects />
   <Contact />
 </div>
-
 
 <style>
   .container {

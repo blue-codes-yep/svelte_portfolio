@@ -11,9 +11,6 @@
 </nav>
 
 <style>
-  html {
-    scroll-behavior: smooth; 
-  }
   .navbar {
     display: flex;
     justify-content: center; /* Center items horizontally */
