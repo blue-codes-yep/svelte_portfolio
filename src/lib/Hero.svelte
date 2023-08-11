@@ -1,9 +1,9 @@
 <style>
   h1 {
     font-size: 2rem;
-    color: var(--primary-color); /* Using global color variable */
+    color: var(--primary-color);
   }
-  /* Other component-specific styles */
+
 </style>
 
 
