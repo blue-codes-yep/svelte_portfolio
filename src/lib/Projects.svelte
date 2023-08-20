@@ -1,5 +1,6 @@
 <script lang="ts">
   type Project = {
+    showDetails: any;
     title: string;
     description: string;
     technologies: string[];
@@ -45,7 +46,7 @@
       details:
         "Member of a 3-person development team building an application...",
     },
-  ];
+  ].map((project) => ({ ...project, showDetails: false }));
 
   let selectedProject: Project | null = null;
 
@@ -54,16 +55,17 @@
       showDetails(project);
     }
   }
-
   function showDetails(project: Project): void {
-    selectedProject = project;
-  }
+  project.showDetails = !project.showDetails;
+  selectedProject = selectedProject === project ? null : project;
+}
+
 </script>
 
 <section id="project" class="project-grid">
   {#each projects as project}
     <div
-      class="project-card"
+      class="project-card {project.showDetails ? 'expanded' : ''}"
       on:click={() => showDetails(project)}
       on:keydown={(event) => handleKeyDown(event, project)}
       tabindex="0"
@@ -93,6 +95,8 @@
 
 <style>
   .project-grid {
+    display: flex;
+    flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
@@ -102,13 +106,23 @@
     cursor: pointer;
     border: 1px solid #e0e0e0;
     padding: 15px;
+    margin: 0 auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    max-height: 250px;
     width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    position: relative;
+    flex: 1 0 calc(25% - 30px);
+    transition: max-height 0.3s ease;
+  }
+
+  .project-card.expanded {
+    /* Define styles for the expanded state, such as increased height */
+    max-height: 600px; /* or a specific value */
   }
 
   .project-card h2 {
@@ -148,6 +162,10 @@
     background-color: var(--background-color);
     color: var(--text-color);
     border-radius: 8px;
+    max-height: 200px;
     width: 300px;
+    top: 0;
+    left: 0;
+    overflow: auto;
   }
 </style>
