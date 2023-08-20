@@ -55,9 +55,24 @@
       showDetails(project);
     }
   }
+
   function showDetails(project: Project): void {
   project.showDetails = !project.showDetails;
   selectedProject = selectedProject === project ? null : project;
+
+  // Query all project cards
+  const projectCards = document.querySelectorAll('.project-card');
+
+  // Reset the expanded class for all cards
+  projectCards.forEach((card) => card.classList.remove('expanded'));
+
+  // Apply the expanded class to the clicked card if selected
+  if (selectedProject) {
+    const clickedCard = document.querySelector(`.project-card[data-title="${selectedProject.title}"]`) as HTMLElement;
+    if (clickedCard) {
+      clickedCard.classList.add('expanded');
+    }
+  }
 }
 
 </script>
@@ -66,6 +81,7 @@
   {#each projects as project}
     <div
       class="project-card {project.showDetails ? 'expanded' : ''}"
+      data-title="{project.title}"
       on:click={() => showDetails(project)}
       on:keydown={(event) => handleKeyDown(event, project)}
       tabindex="0"
@@ -95,10 +111,9 @@
 
 <style>
   .project-grid {
-    display: flex;
-    flex-wrap: wrap;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 250px; /* Base height of the card */
     grid-gap: 20px;
   }
 
@@ -110,7 +125,6 @@
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    max-height: 250px;
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -121,8 +135,7 @@
   }
 
   .project-card.expanded {
-    /* Define styles for the expanded state, such as increased height */
-    max-height: 600px; /* or a specific value */
+    grid-row-end: span 2; /* Span two rows when expanded */
   }
 
   .project-card h2 {
