@@ -25,12 +25,31 @@
       demo: null,
       details: "More details about Cryptid-Refactor project...",
     },
+    {
+      title: "Job Finder",
+      description:
+        "An application to help job seekers by streamlining searches.",
+      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
+    {
+      title: "PP(Project Placeholder)",
+      description:
+        "An application to help job seekers by streamlining searches.",
+      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
   ];
 
   let selectedProject: Project | null = null;
 
   function handleKeyDown(event: KeyboardEvent, project: Project): void {
-    // Check if the key pressed is "Enter" or "Space"
     if (event.key === "Enter" || event.key === " ") {
       showDetails(project);
     }
@@ -41,7 +60,7 @@
   }
 </script>
 
-<section id="project">
+<section id="project" class="project-grid">
   {#each projects as project}
     <div
       class="project-card"
@@ -73,15 +92,20 @@
 </section>
 
 <style>
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+  }
+
   .project-card {
     cursor: pointer;
     border: 1px solid #e0e0e0;
-    padding: 20px;
-    margin: 15px;
+    padding: 15px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    width: 300px; /* Set a fixed width for the cards */
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -121,9 +145,9 @@
   }
 
   .project-details {
-    background-color: var(--background-color); 
-    color: var(--text-color); 
+    background-color: var(--background-color);
+    color: var(--text-color);
     border-radius: 8px;
-    width: 300px; 
+    width: 300px;
   }
 </style>
