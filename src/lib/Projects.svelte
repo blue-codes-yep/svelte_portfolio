@@ -51,25 +51,25 @@
       role="button"
       aria-label="View project details"
     >
-      <h2>{project.title}</h2> <!-- Project Title -->
-      <p>{project.description}</p> <!-- Project Description -->
+      <h2>{project.title}</h2>
+      <p>{project.description}</p>
       <ul>
         {#each project.technologies as tech}
-          <li>{tech}</li> <!-- Technologies Used -->
+          <li>{tech}</li>
         {/each}
       </ul>
-      <a href={project.github}>GitHub</a> <!-- GitHub Link -->
+      <a href={project.github}>GitHub</a>
       {#if project.demo}
-        <a href={project.demo}>Live Demo</a> <!-- Demo Link (if available) -->
+        <a href={project.demo}>Live Demo</a>
+      {/if}
+      {#if selectedProject === project}
+        <div class="project-details">
+          <h3>{selectedProject.title} Details</h3>
+          <p>{selectedProject.details}</p>
+        </div>
       {/if}
     </div>
   {/each}
-  {#if selectedProject}
-    <div class="project-details">
-      <h3>{selectedProject.title} Details</h3> <!-- Selected Project Title -->
-      <p>{selectedProject.details}</p> <!-- Selected Project Details -->
-    </div>
-  {/if}
 </section>
 
 <style>
@@ -121,10 +121,9 @@
   }
 
   .project-details {
-    padding: 15px;
-    background-color: #f9f9f9;
+    background-color: var(--background-color); 
+    color: var(--text-color); 
     border-radius: 8px;
-    margin: 10px;
-    width: 300px; /* Match the width of the cards */
+    width: 300px; 
   }
 </style>
