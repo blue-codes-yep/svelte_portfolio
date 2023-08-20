@@ -9,9 +9,15 @@
 <Skills />
 <Landing />
 <div class="container">
-  <About />
-  <Projects />
-  <Contact />
+  <section id="about-me" class="main-section">
+    <About />
+  </section>
+  <section id="projects" class="main-section">
+    <Projects />
+  </section>
+  <section id="contact" class="main-section">
+    <Contact />
+  </section>
 </div>
 
 <style>

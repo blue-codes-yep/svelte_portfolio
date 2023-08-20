@@ -23,3 +23,13 @@ body {
   font-family: "Arial", sans-serif;
   margin: 0;
 }
+
+
+/* Main Section Styles */
+.main-section {
+  padding: 80px 0; /* Vertical spacing around the entire section */
+  margin: 0 auto; /* Center the content horizontally */
+  max-width: 1200px; /* Maximum width to maintain readability */
+  background-color: var(--background-color); /* Background color from theme */
+  color: var(--text-color); /* Text color from theme */
+}
