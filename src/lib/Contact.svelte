@@ -54,6 +54,7 @@
   
   <style>
     form {
+      border: 2px solid var(--border-color);
       max-width: 600px;
       margin: 0 auto;
       padding: 100px;
@@ -72,7 +73,6 @@
     textarea {
       width: 100%;
       padding: 10px;
-      border: 1px solid #ccc;
       border-radius: 5px;
       font-size: 16px;
       margin-bottom: 20px;

@@ -119,7 +119,7 @@
 
   .project-card {
     cursor: pointer;
-    border: 1px solid #e0e0e0;
+    border: 2px solid var(--border-color);
     padding: 15px;
     margin: 0 auto;
     border-radius: 8px;
