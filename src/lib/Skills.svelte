@@ -12,7 +12,7 @@
 
     observer.observe(aboutSection);
 
-    return () => observer.disconnect(); // Cleanup
+    return () => observer.disconnect(); 
   });
 </script>
 
@@ -22,7 +22,6 @@
         <div class="skill" transition:fade={{ delay: 500 }}>
           <img src="/python.png" alt="Python" />
           <span>Python</span>
-        <!-- Other skills with increasing delay -->
       </div>
     <div class="skill" transition:fade={{ delay: 750 }}>
       <img src="/js.png" alt="JavaScript" />
@@ -32,15 +31,14 @@
       <img src="/svelte.png" alt="Svelte" />
       <span>Svelte</span>
     </div>
-    <!-- Add more skills as needed -->
   </div>
 {/if}
 
 <style>
   .skills {
-    position: fixed; /* Fixed position */
-    left: 0; /* Far left of the page */
-    top: 20%; /* Adjust vertical position as needed */
+    position: fixed;
+    left: 0; 
+    top: 20%; 
     border-top: 2px solid blue;
     border-right: 2px solid blue;
     padding: 10px;

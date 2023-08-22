@@ -13,15 +13,15 @@
 <style>
   .navbar {
     display: flex;
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    flex-wrap: nowrap; /* Keep items in a single row */
+    justify-content: center; 
+    align-items: center; 
+    flex-wrap: nowrap; 
     padding: 10px;
     background-color: var(--background-color);
   }
 
   .navbar a {
-    margin: 0 15px; /* Space between links */
+    margin: 0 15px; 
     text-decoration: none;
     color: var(--text-color);
   }
