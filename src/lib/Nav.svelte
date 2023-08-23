@@ -17,7 +17,7 @@
     align-items: center; 
     flex-wrap: nowrap; 
     padding: 10px;
-    background-color: var(--background-color);
+
   }
 
   .navbar a {

@@ -63,11 +63,12 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: var(--background-color);
+
     text-align: center;
   }
 
   .landing h1 {
+
     font-size: 4.5rem;
     transition: opacity 0.5s;
     opacity: 0;
@@ -98,7 +99,7 @@
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background-color: var(--background-color);
+
     text-align: center;
   }
 
@@ -111,7 +112,7 @@
   }
 
   .scroll-icon {
-    transition: opacity 0.5s;
+    transition: opacity 1s;
     opacity: 0;
     filter: brightness(1.5);
     animation: neon 1s ease-in-out infinite alternate;

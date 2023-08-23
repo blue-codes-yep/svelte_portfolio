@@ -1,7 +1,3 @@
-html {
-  scroll-behavior: smooth;
-}
-
 /* Light Theme */
 :root {
   --background-color: #f5f5f5;
@@ -9,7 +5,8 @@ html {
   --neon-color: #473380;
   --neon-color-text: #00BFFF;
   --border-color: #0095FF; /* You can change this to your desired border color */
-  --section-background-color: #f5f5f5; /* You can change this to your desired background color */
+  --section-background-color: #f5f5f5;
+  --background-text-color: #0000FF; /* You can change this to your desired background color */
 }
 
 /* Dark Theme */
@@ -22,20 +19,81 @@ html {
   --section-background-color: #333; /* You can change this to your desired background color */
 }
 
-/* Common Styles */
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  transition: color 0.3s;
+  font-family: 'Satoshi-Regular', sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 3px;
+}
+
+h1:hover {
+  color: var(--neon-color);
+}
+
+h2 {
+  transition: color 0.3s;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+h2:hover {
+  color: var(--neon-color);
+}
+
 body {
+  font-family: 'nimbus_sans_lregular', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: "Arial", sans-serif;
   margin: 0;
 }
 
+p {
+  line-height: 1.5;
+}
 
-/* Main Section Styles */
+
 .main-section {
   padding: 50px 0; 
   margin: 0 auto; 
   max-width: 1200px; 
   background-color: var(--background-color); 
   color: var(--text-color); 
+}
+
+
+@font-face {
+  font-family: 'nimbus_sans_lbold';
+  src: url('fonts/NimbusSanL-Bol-webfont.eot');
+  src: url('fonts/NimbusSanL-Bol-webfont.eot?#iefix') format('embedded-opentype'),
+      url('fonts/NimbusSanL-Bol-webfont.woff') format('woff'),
+      url('fonts/NimbusSanL-Bol-webfont.ttf') format('truetype'),
+      url('fonts/NimbusSanL-Bol-webfont.svg#nimbus_sans_lbold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'nimbus_sans_lregular';
+  src: url('fonts/NimbusSanL-Reg-webfont.eot');
+  src: url('fonts/NimbusSanL-Reg-webfont.eot?#iefix') format('embedded-opentype'),
+      url('fonts/NimbusSanL-Reg-webfont.woff') format('woff'),
+      url('fonts/NimbusSanL-Reg-webfont.svg#nimbus_sans_lregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Satoshi-Regular';
+  src: url('fonts/Satoshi-Regular.woff2') format('woff2'),
+      url('fonts/Satoshi-Regular.woff') format('woff'),
+      url('fonts/Satoshi-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+  font-style: normal;
 }
