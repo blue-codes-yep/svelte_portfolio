@@ -16,7 +16,7 @@
     justify-content: center; 
     align-items: center; 
     flex-wrap: nowrap; 
-    padding: 10px;
+    padding-bottom: 20px;
 
   }
 
