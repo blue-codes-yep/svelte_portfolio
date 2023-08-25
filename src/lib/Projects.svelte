@@ -8,6 +8,7 @@
     demo: string | null;
     details: string;
     image: string | null;
+    image2: string | null;
   };
 
   const projects: Project[] = [
@@ -15,6 +16,7 @@
       title: "AI.AT",
       image:
         "68747470733a2f2f692e696d6775722e636f6d2f5538316e71486e2e706e67.png",
+      image2: "aiat2.png",
       description: "A collaborative AI project.",
       technologies: ["Python", "Langchain", "Gpt4", "Flask"],
       github: "https://github.com/blue-codes-yep/AI.AT",
@@ -23,7 +25,8 @@
     },
     {
       title: "Cryptid-Refactor",
-      image: 'LogOnPage.png',
+      image: "LogOnPage.png",
+      image2: null,
       description: "A refactoring project.",
       technologies: ["JavaScript", "React"],
       github: "https://github.com/aaroncosmith/Cryptid-Refactor",
@@ -33,6 +36,7 @@
     {
       title: "Job Finder",
       image: "jobfinder-jobs.gif",
+      image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
       technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
@@ -43,7 +47,8 @@
     },
     {
       title: "Fire Stocks",
-      image: 'firestocks.png',
+      image: "firestocks.png",
+      image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
       technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
@@ -54,7 +59,8 @@
     },
     {
       title: "24GO",
-      image: '24go.png',
+      image: "24go.png",
+      image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
       technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
@@ -66,6 +72,7 @@
     {
       title: "Steam Market Analysis - AI",
       image: null,
+      image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
       technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
@@ -119,8 +126,13 @@
     >
       <h2>{project.title}</h2>
       <div class="image-container">
-        <img src={project.image} alt={project.title} />
+        <img
+          src={project.image}
+          alt={project.title}
+          class={!project.showDetails ? "active" : ""}
+        />
       </div>
+
       {#if project.showDetails && selectedProject}
         <p>{project.description}</p>
         <ul>
@@ -142,113 +154,138 @@
 </section>
 
 <style>
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(250px, auto); /* Adjust the row height as needed */
-    grid-gap: 20px;
-  }
+/* Grid Layout */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(250px, auto);
+  grid-gap: 20px;
+}
 
+/* Project Card Base Styles */
+.project-card {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  cursor: pointer;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  width: 400px;
+  flex: 0 0 calc(33.333% - 20px);
+  overflow: hidden;
+}
+
+/* Image Styles */
+.project-card img {
+  max-width: 100%;
+  height: 100%;
+  display: none;
+  position: absolute;
+  object-fit: cover;
+}
+
+.project-card img.active {
+  display: block;
+}
+
+.project-card.expanded img.active {
+  height: 100%;
+  width: 100%;
+}
+
+/* Image Container */
+.image-container {
+  height: 350px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Expanded Project Card Styles */
+.project-card.expanded {
+  flex: 1 1 50%;
+  grid-row-end: span 2;
+  overflow: auto;
+  width: 800px;
+}
+
+.project-card.expanded .image-container {
+  height: 80%;
+  width: 100%;
+}
+
+.project-card.expanded img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Text and Link Styles */
+.project-card h2,
+.project-card p,
+.project-card ul,
+.project-card li,
+.project-card a {
+  font-size: 1rem;
+}
+
+.project-card h2 {
+  position: absolute;
+  top: -18px;
+  left: 0px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 4px;
+  z-index: 1;
+}
+
+.project-card p {
+  margin-bottom: 10px;
+}
+
+.project-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.project-card li {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.project-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Hover Effect */
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Details */
+.project-details {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  max-height: 200px;
+  width: 300px;
+  top: 0;
+  left: 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .project-card {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    align-items: flex-start;
-    cursor: pointer;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    width: 400px;
-    flex: 0 0 calc(33.333% - 20px);
-    transition: max-height 0.3s ease;
-    overflow: hidden;
-  }
-
-  .project-card img {
-    max-width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    object-fit: cover;
+    width: 300px;
   }
 
   .image-container {
-    height: 350px; /* Set a fixed height */
-    width: 100%;
-    position: relative;
-    overflow: hidden; /* Add this line */
+    height: 200px;
   }
-
-  .project-card.expanded {
-    /* Adjust the styles as needed for the expanded state */
-    flex: 1 1 50%;
-    grid-row-end: span 2;
-    overflow: auto; /* Add this line to enable scrolling for additional content */
-  }
-
-  .project-card h2 {
-    font-size: 1rem;
-    position: absolute;
-    top: -18px; /* Adjust as needed */
-    left: 0px; /* Adjust as needed */
-    color: #fff; /* Set to a color that contrasts with the image */
-    background: rgba(
-      0,
-      0,
-      0,
-      0.4
-    ); /* Optional: Add a background to make the text more readable */
-    padding: 4px;
-    z-index: 1;
-  }
-
-  .project-card p {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  .project-card ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 10px;
-  }
-
-  .project-card li {
-    font-size: 0.9rem;
-    margin-right: 5px;
-    display: inline-block;
-  }
-
-  .project-card a {
-    font-size: 0.9rem;
-    color: #007bff;
-    text-decoration: none;
-  }
-
-  .project-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-  }
-
-  .project-details {
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border-radius: 8px;
-    max-height: 200px;
-    width: 300px;
-    top: 0;
-    left: 0;
-    overflow: auto;
-  }
-
-  @media (max-width: 768px) {
-    .project-card {
-      width: 300px; /* Smaller width for smaller screens */
-    }
-
-    .image-container {
-      height: 200px; /* Smaller height for smaller screens */
-    }
-  }
+}
 </style>
