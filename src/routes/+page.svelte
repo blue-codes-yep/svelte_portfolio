@@ -37,7 +37,6 @@
 
   .main-section {
     width: 100%;
-
     margin-bottom: 40px;
     box-sizing: border-box;
   }
@@ -65,10 +64,11 @@
     color: var(--background-text-color);
     cursor: default;
     z-index: 0;
+    margin: 50px;
   }
 
   .background-text:hover {
-    color: blue;
+    color: rgb(66, 66, 248);
     opacity: 0.5; /* You can adjust the opacity on hover if desired */
   }
   .title {
@@ -83,7 +83,7 @@
     font-size: 2rem;
     font-weight: normal;
     line-height: 1;
-    margin: 0;
+    margin-left: 100px;
   }
 
   @keyframes neonEffect {
