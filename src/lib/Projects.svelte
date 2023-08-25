@@ -52,6 +52,28 @@
       details:
         "Member of a 3-person development team building an application...",
     },
+    {
+      title: "24GO",
+      image: '24go.png',
+      description:
+        "An application to help job seekers by streamlining searches.",
+      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
+    {
+      title: "Steam Market Analysis - AI",
+      image: null,
+      description:
+        "An application to help job seekers by streamlining searches.",
+      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
   ].map((project) => ({ ...project, showDetails: false }));
 
   let selectedProject: Project | null = null;
