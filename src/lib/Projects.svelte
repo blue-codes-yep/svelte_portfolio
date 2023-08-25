@@ -23,7 +23,7 @@
     },
     {
       title: "Cryptid-Refactor",
-      image: null,
+      image: 'LogOnPage.png',
       description: "A refactoring project.",
       technologies: ["JavaScript", "React"],
       github: "https://github.com/aaroncosmith/Cryptid-Refactor",
@@ -32,7 +32,7 @@
     },
     {
       title: "Job Finder",
-      image: null,
+      image: "jobfinder-jobs.gif",
       description:
         "An application to help job seekers by streamlining searches.",
       technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
@@ -42,8 +42,8 @@
         "Member of a 3-person development team building an application...",
     },
     {
-      title: "PP(Project Placeholder)",
-      image: null,
+      title: "Fire Stocks",
+      image: 'firestocks.png',
       description:
         "An application to help job seekers by streamlining searches.",
       technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
@@ -129,17 +129,15 @@
 
   .project-card {
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: flex-start;
     cursor: pointer;
     border: 2px solid var(--border-color);
-    padding: 15px;
-    margin: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     width: 400px;
-    position: relative;
     flex: 0 0 calc(33.333% - 20px);
     transition: max-height 0.3s ease;
     overflow: hidden;
@@ -154,22 +152,33 @@
   }
 
   .image-container {
-  height: 250px; /* Set a fixed height */
-  width: 100%;
-  position: relative;
-  overflow: hidden; /* Add this line */
-}
+    height: 350px; /* Set a fixed height */
+    width: 100%;
+    position: relative;
+    overflow: hidden; /* Add this line */
+  }
 
-.project-card.expanded {
-  /* Adjust the styles as needed for the expanded state */
-  flex: 1 1 50%;
-  grid-row-end: span 2;
-  overflow: auto; /* Add this line to enable scrolling for additional content */
-}
+  .project-card.expanded {
+    /* Adjust the styles as needed for the expanded state */
+    flex: 1 1 50%;
+    grid-row-end: span 2;
+    overflow: auto; /* Add this line to enable scrolling for additional content */
+  }
 
   .project-card h2 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
+    font-size: 1rem;
+    position: absolute;
+    top: -18px; /* Adjust as needed */
+    left: 0px; /* Adjust as needed */
+    color: #fff; /* Set to a color that contrasts with the image */
+    background: rgba(
+      0,
+      0,
+      0,
+      0.4
+    ); /* Optional: Add a background to make the text more readable */
+    padding: 4px;
+    z-index: 1;
   }
 
   .project-card p {
@@ -209,5 +218,15 @@
     top: 0;
     left: 0;
     overflow: auto;
+  }
+
+  @media (max-width: 768px) {
+    .project-card {
+      width: 300px; /* Smaller width for smaller screens */
+    }
+
+    .image-container {
+      height: 200px; /* Smaller height for smaller screens */
+    }
   }
 </style>
