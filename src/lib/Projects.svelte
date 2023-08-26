@@ -280,12 +280,29 @@
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-  .project-card {
-    width: 300px;
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr); /* Change to 2 columns */
   }
 
+  .project-card {
+    width: 40vw; /* Adjust width */
+  }
+
+
   .image-container {
-    height: 200px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr; /* Single column layout */
+  }
+
+  .project-card {
+    width: 40vw; /* Adjust width */
   }
 }
 </style>
+
+

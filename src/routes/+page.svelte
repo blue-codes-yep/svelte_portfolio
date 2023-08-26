@@ -29,14 +29,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box;
   }
 
   .main-section {
-    width: 100%;
     margin-bottom: 40px;
     box-sizing: border-box;
   }

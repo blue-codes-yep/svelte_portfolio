@@ -1,5 +1,5 @@
 <style>
-  .container {
+  .layoutcontainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,7 +18,7 @@
 </script>
 
 <Nav />
-<div class="container">
+<div class="layoutcontainer">
   <slot />
 </div>
 <Footer />
