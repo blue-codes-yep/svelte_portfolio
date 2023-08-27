@@ -13,11 +13,11 @@
     <h1 class="title">Blue Codes</h1>
     <h2 class="subtitle">Software Engineer</h2>
   </div>
-  <section id="about-me" class="main-section">
-    <About />
-  </section>
   <section id="projects" class="main-section">
     <Projects />
+  </section>
+  <section id="about-me" class="main-section">
+    <About />
   </section>
   <section id="contact" class="main-section">
     <Contact />

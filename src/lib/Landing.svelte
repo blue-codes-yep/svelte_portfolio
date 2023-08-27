@@ -1,5 +1,6 @@
 <script>
   import { onMount } from "svelte";
+  import * as animateScroll from 'svelte-scrollto';
 
   let words = ["Welcome", "Scroll down || Click", "to check me out"];
   let currentWord = 0;
@@ -13,13 +14,21 @@
       }
     }, 1200); // Toggle visibility every second
 
-    return () => clearInterval(interval); // Cleanup
+    
+
+    setTimeout(() => {
+      animateScroll.scrollTo({ element: '#projects', duration: 2000 });
+    }, 1250);  // 2000 milliseconds = 2 seconds
   });
+
+  const scrollToProjects = () => {
+  animateScroll.scrollTo({ element: '#projects', duration: 2000 });
+};
 </script>
 
 <div class="landing">
   <div class="TextContainer">
-    <a href="#about" class="continue-link">
+    <a href="#projects" class="continue-link" on:click={scrollToProjects}>
       <h1 class={visible ? "visible" : ""}>{words[currentWord]}</h1>
       <svg
         class={visible ? "visible scroll-icon" : "scroll-icon"}
