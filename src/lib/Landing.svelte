@@ -1,34 +1,26 @@
 <script>
   import { onMount } from "svelte";
-  import * as animateScroll from 'svelte-scrollto';
+  import * as animateScroll from "svelte-scrollto";
 
-  let words = ["Welcome", "Scroll down || Click", "to check me out"];
+  let words = ["Welcome", "Check out my projects!"];
   let currentWord = 0;
   let visible = false;
+  let showText = false;
 
   onMount(() => {
-    const interval = setInterval(() => {
-      visible = !visible; // Toggle visibility
-      if (visible) {
-        currentWord = (currentWord + 1) % words.length; // Change word when becoming visible
-      }
-    }, 1200); // Toggle visibility every second
-
-    
+    setTimeout(() => {
+      showText = true;
+    }, 1000); // 1 second delay
 
     setTimeout(() => {
-      animateScroll.scrollTo({ element: '#projects', duration: 2000 });
-    }, 1250);  // 2000 milliseconds = 2 seconds
+      animateScroll.scrollTo({ element: "#projects", duration: 2000 });
+    }, 2500); // 2 seconds delay
   });
-
-  const scrollToProjects = () => {
-  animateScroll.scrollTo({ element: '#projects', duration: 2000 });
-};
 </script>
 
 <div class="landing">
   <div class="TextContainer">
-    <a href="#projects" class="continue-link" on:click={scrollToProjects}>
+    <a href="#projects" class="continue-link" >
       <h1 class={visible ? "visible" : ""}>{words[currentWord]}</h1>
       <svg
         class={visible ? "visible scroll-icon" : "scroll-icon"}
@@ -61,6 +53,9 @@
         </g></svg
       >
     </a>
+    {#if showText}
+      <div class="animated-text"><h2>Check out my projects</h2></div>
+    {/if}
   </div>
   <p>Explore my portfolio and learn more about me.</p>
 </div>
@@ -76,7 +71,6 @@
   }
 
   .landing h1 {
-
     font-size: 4.5rem;
     transition: opacity 0.5s;
     opacity: 0;
@@ -138,4 +132,53 @@
       filter: brightness(2) drop-shadow(0 0 20px var(--neon-color));
     }
   }
+
+
+  .animated-text {
+  position: relative;
+  left: -80%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  text-align: center;
+  opacity: 0;
+  color: #000;
+  text-shadow: none;
+  animation: 
+    slideIn 2s forwards, 
+    fadeIn 2s forwards, 
+    bounce 2s 1s ease-in-out infinite, 
+    colorChange 4s infinite, 
+    textShadow 4s infinite;
+}
+@keyframes slideIn {
+  100% {
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes colorChange {
+  0%, 100% {
+    color: #000;
+  }
+  50% {
+    color: #f00;
+  }
+}
+
+@keyframes textShadow {
+  0%, 100% {
+    text-shadow: none;
+  }
+  50% {
+    text-shadow: 2px 2px 4px #000;
+  }
+}
 </style>
