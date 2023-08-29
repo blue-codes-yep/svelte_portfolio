@@ -146,7 +146,7 @@
   animation: 
     slideIn 2s forwards, 
     fadeIn 2s forwards, 
-    bounce 2s 1s ease-in-out infinite, 
+    bounce 2s 1.5s ease-in-out infinite, 
     colorChange 4s infinite, 
     textShadow 4s infinite;
 }
