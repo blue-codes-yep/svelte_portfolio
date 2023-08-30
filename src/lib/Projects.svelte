@@ -131,6 +131,11 @@
   }
 
   function showDetails(project: Project): void {
+    projects.forEach((p) => {
+      if (p.title !== project.title) {
+        p.showDetails = false;
+      }
+    });
     const updatedProject = { ...project, showDetails: !project.showDetails };
     const projectIndex = projects.findIndex((p) => p.title === project.title);
     projects[projectIndex] = updatedProject;
