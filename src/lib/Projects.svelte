@@ -1,6 +1,6 @@
 <script lang="ts">
   type Project = {
-    showDetails: any;
+    showDetails: Boolean;
     title: string;
     description: string;
     technologies: string[];
@@ -11,7 +11,7 @@
     image2: string | null;
   };
 
-  const projects: Project[] = [
+  let projects: Project[] = [
     {
       title: "AI.AT",
       image:
@@ -83,8 +83,7 @@
     },
   ].map((project) => ({ ...project, showDetails: false }));
 
-  let selectedProject: Project | null = null;
-
+  let selectedProject: Project | null = null; // No project is selected initially
 
   function handleKeyDown(event: KeyboardEvent, project: Project): void {
     if (event.key === "Enter" || event.key === " ") {
@@ -93,33 +92,19 @@
   }
 
   function showDetails(project: Project): void {
-    project.showDetails = !project.showDetails;
-    selectedProject = selectedProject === project ? null : project;
-
-    // Query all project cards
-    const projectCards = document.querySelectorAll(".project-card");
-
-    // Reset the expanded class for all cards
-    projectCards.forEach((card) => card.classList.remove("expanded"));
-
-    // Apply the expanded class to the clicked card if selected
-    if (selectedProject) {
-      const clickedCard = document.querySelector(
-        `.project-card[data-title="${selectedProject.title}"]`
-      ) as HTMLElement;
-      if (clickedCard) {
-        clickedCard.classList.add("expanded");
-      }
-    }
+    const updatedProject = { ...project, showDetails: !project.showDetails };
+    const projectIndex = projects.findIndex((p) => p.title === project.title);
+    projects[projectIndex] = updatedProject;
+    projects = [...projects]; // Trigger Svelte reactivity
+    selectedProject =
+      selectedProject === updatedProject ? null : updatedProject;
   }
-
 </script>
 
 <section id="project" class="project-grid">
   {#each projects as project}
     <div
       class="project-card {project.showDetails ? 'expanded' : ''}"
-      data-title={project.title}
       on:click={() => showDetails(project)}
       on:keydown={(event) => handleKeyDown(event, project)}
       tabindex="0"
@@ -136,6 +121,7 @@
       </div>
 
       {#if project.showDetails && selectedProject}
+      <div class="info-container">
         <p>{project.description}</p>
         <ul>
           {#each project.technologies as tech}
@@ -147,9 +133,10 @@
           <a href={project.demo}>Live Demo</a>
         {/if}
         <div class="project-details">
-          <h3>{selectedProject.title} Details</h3>
-          <p>{selectedProject.details}</p>
+          <h3>{project.title} Details</h3>
+          <p>{project.details}</p>
         </div>
+      </div>
       {/if}
     </div>
   {/each}
@@ -185,8 +172,6 @@
   .project-card img {
     max-width: 100%;
     height: 100%;
-    display: none;
-    position: absolute;
     object-fit: cover;
   }
 
@@ -209,27 +194,38 @@
 
   /* Expanded Project Card Styles */
   .project-card.expanded {
-  height: 100vh;
-  width: 100vw;
-  overflow: auto;
-  max-width: 100%;
-  box-sizing: border-box;
-  max-height: 100%;
-  z-index: 1;
-  grid-row-start: 1;  
-  grid-column: 1 / -1; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    max-height: 100%;
+    z-index: 1;
+    grid-row-start: 1;
+    grid-column: 1 / -1;
+  }
+
+  .project-card.expanded .image-container {
+  flex: 1; /* Takes up 1 portion of the available space */
+  height: auto;
+  width: auto;
+}
+
+.project-card.expanded .info-container {
+  flex: 1; /* Takes up 1 portion of the available space */
+  padding: 20px;
 }
 
 
-  .project-card.expanded .image-container {
-    height: 80%;
-    width: 100%;
-  }
+.project-card.expanded img {
+  height: auto;
+  width: 100%;
+  object-fit: contain;
+}
 
-  .project-card.expanded img {
-    height: 100%;
-    width: 100%;
-  }
 
   /* Text and Link Styles */
   .project-card h2,
@@ -310,10 +306,6 @@
     .project-card {
       max-width: 100%;
       box-sizing: border-box;
-    }
-
-    .project-card {
-      width: 40vw; /* Adjust width */
     }
   }
 </style>
