@@ -1,6 +1,5 @@
 <script lang="ts">
-  // Need to focus cards in view, as well as add more containers inside the expanded cards for information
-  // Also need to un-expand a card if another is clicked.
+  // Need to un-expand a card if another is clicked.
 
   type Technology = {
     name: string;
@@ -21,7 +20,7 @@
 
   let projects: Project[] = [
     {
-      title: "AI.AT",
+      title: "AI Video-Genteration",
       image:
         "68747470733a2f2f692e696d6775722e636f6d2f5538316e71486e2e706e67.png",
       image2: "aiat2.png",
@@ -162,13 +161,14 @@
 
       {#if project.showDetails && selectedProject}
         <div class="info-container">
+          <h3>{project.title}</h3>
           <p>{project.description}</p>
           <a href={project.github}>GitHub</a>
           {#if project.demo}
             <a href={project.demo}>Live Demo</a>
           {/if}
           <div class="project-details">
-            <h3>{project.title} Details</h3>
+
             <p>{project.details}</p>
           </div>
         </div>
