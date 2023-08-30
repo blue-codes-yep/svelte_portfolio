@@ -1,5 +1,5 @@
 <script lang="ts">
-  // Need to un-expand a card if another is clicked.
+  import * as animateScroll from "svelte-scrollto";
 
   type Technology = {
     name: string;
@@ -58,7 +58,7 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-        technologies: [
+      technologies: [
         { name: "Python", image: "/python.png" },
         { name: "Javascript", image: "/js.png" },
         { name: "Gpt4", image: "/gpt4.png" },
@@ -75,7 +75,7 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-        technologies: [
+      technologies: [
         { name: "Python", image: "/python.png" },
         { name: "Javascript", image: "/js.png" },
         { name: "Gpt4", image: "/gpt4.png" },
@@ -92,7 +92,7 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-        technologies: [
+      technologies: [
         { name: "Python", image: "/python.png" },
         { name: "Javascript", image: "/js.png" },
         { name: "Gpt4", image: "/gpt4.png" },
@@ -109,7 +109,7 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-        technologies: [
+      technologies: [
         { name: "Python", image: "/python.png" },
         { name: "Javascript", image: "/js.png" },
         { name: "Gpt4", image: "/gpt4.png" },
@@ -129,19 +129,25 @@
       showDetails(project);
     }
   }
-
   function showDetails(project: Project): void {
-    projects.forEach((p) => {
-      if (p.title !== project.title) {
-        p.showDetails = false;
-      }
-    });
-    const updatedProject = { ...project, showDetails: !project.showDetails };
+    // Un-expand the previously selected project
+    if (selectedProject && selectedProject !== project) {
+      selectedProject.showDetails = false;
+    }
+
+    // Toggle the details for the clicked project
+    project.showDetails = !project.showDetails;
+    selectedProject = project.showDetails ? project : null;
+
+    // Update the projects array to reflect the changes
     const projectIndex = projects.findIndex((p) => p.title === project.title);
-    projects[projectIndex] = updatedProject;
+    projects[projectIndex] = project;
     projects = [...projects];
-    selectedProject =
-      selectedProject === updatedProject ? null : updatedProject;
+
+
+    if (selectedProject) {
+        animateScroll.scrollTo({ element: "#projects", duration: 100 });
+    }
   }
 </script>
 
@@ -173,7 +179,6 @@
             <a href={project.demo}>Live Demo</a>
           {/if}
           <div class="project-details">
-
             <p>{project.details}</p>
           </div>
         </div>
@@ -190,7 +195,6 @@
 </section>
 
 <style>
-
   /* Grid Layout */
   .project-grid {
     display: grid;
