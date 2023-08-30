@@ -85,6 +85,7 @@
 
   let selectedProject: Project | null = null;
 
+
   function handleKeyDown(event: KeyboardEvent, project: Project): void {
     if (event.key === "Enter" || event.key === " ") {
       showDetails(project);
@@ -111,6 +112,7 @@
       }
     }
   }
+
 </script>
 
 <section id="project" class="project-grid">
@@ -174,8 +176,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     width: 400px;
-    flex: 0 0 calc(33.333% - 20px);
+    flex: 1 0 calc(33.333% - 20px);
     overflow: hidden;
+    order: 0;
   }
 
   /* Image Styles */
@@ -192,8 +195,8 @@
   }
 
   .project-card.expanded img.active {
-    height: 100%;
-    width: 100%;
+    height: 80%;
+    width: 80%;
   }
 
   /* Image Container */
@@ -206,14 +209,17 @@
 
   /* Expanded Project Card Styles */
   .project-card.expanded {
-  flex: 1 1 50%;
-  grid-row-end: span 2;
+  height: 100vh;
+  width: 100vw;
   overflow: auto;
-  width: 800px;
   max-width: 100%;
   box-sizing: border-box;
   max-height: 100%;
+  z-index: 1;
+  grid-row-start: 1;  
+  grid-column: 1 / -1; 
 }
+
 
   .project-card.expanded .image-container {
     height: 80%;
