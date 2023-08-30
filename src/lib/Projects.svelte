@@ -2,17 +2,22 @@
   // Need to focus cards in view, as well as add more containers inside the expanded cards for information
   // Also need to un-expand a card if another is clicked.
 
+  type Technology = {
+    name: string;
+    image: string | null;
+  };
+
   type Project = {
     showDetails: Boolean;
     title: string;
     description: string;
-    technologies: string[];
+    technologies: Technology[];
     github: string;
     demo: string | null;
     details: string;
     image: string | null;
     image2: string | null;
-  }; 
+  };
 
   let projects: Project[] = [
     {
@@ -20,18 +25,30 @@
       image:
         "68747470733a2f2f692e696d6775722e636f6d2f5538316e71486e2e706e67.png",
       image2: "aiat2.png",
-      description: "A collaborative AI project.",
-      technologies: ["Python", "Langchain", "Gpt4", "Flask"],
+      description:
+        "Solo project consisting of a video generation web application that uses a large language model (LLM) to produce a voiced-over video with imagery and words based on the user's chosen topic input. Learned from and overcame challenges with the project specifically related to working with the LLM around prompting, and maintaining response context between prompts for topic script output. Also faced and met user interface challenges related to display of progress.",
+      technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
       github: "https://github.com/blue-codes-yep/AI.AT",
       demo: null,
-      details: "More details about AI.AT project...",
+      details:
+        "Related technologies: Python, Flask, Base64, IO, Boto3, spaCy, Langchain, numpy, PIL, moviepy, pydub, celery, Javascript, React & Material UI",
     },
     {
       title: "Cryptid-Refactor",
       image: "LogOnPage.png",
       image2: null,
       description: "A refactoring project.",
-      technologies: ["JavaScript", "React"],
+      technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
       github: "https://github.com/aaroncosmith/Cryptid-Refactor",
       demo: null,
       details: "More details about Cryptid-Refactor project...",
@@ -42,7 +59,12 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+        technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -54,7 +76,12 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+        technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -66,7 +93,12 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+        technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -78,7 +110,12 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-      technologies: ["HTML", "CSS", "Node.js", "Express.js", "PostgreSQL"],
+        technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -86,7 +123,7 @@
     },
   ].map((project) => ({ ...project, showDetails: false }));
 
-  let selectedProject: Project | null = null; // No project is selected initially
+  let selectedProject: Project | null = null;
 
   function handleKeyDown(event: KeyboardEvent, project: Project): void {
     if (event.key === "Enter" || event.key === " ") {
@@ -98,7 +135,7 @@
     const updatedProject = { ...project, showDetails: !project.showDetails };
     const projectIndex = projects.findIndex((p) => p.title === project.title);
     projects[projectIndex] = updatedProject;
-    projects = [...projects]; // Trigger Svelte reactivity
+    projects = [...projects];
     selectedProject =
       selectedProject === updatedProject ? null : updatedProject;
   }
@@ -124,28 +161,31 @@
       </div>
 
       {#if project.showDetails && selectedProject}
-      <div class="info-container">
-        <p>{project.description}</p>
-        <ul>
-          {#each project.technologies as tech}
-            <li>{tech}</li>
-          {/each}
-        </ul>
-        <a href={project.github}>GitHub</a>
-        {#if project.demo}
-          <a href={project.demo}>Live Demo</a>
-        {/if}
-        <div class="project-details">
-          <h3>{project.title} Details</h3>
-          <p>{project.details}</p>
+        <div class="info-container">
+          <p>{project.description}</p>
+          <a href={project.github}>GitHub</a>
+          {#if project.demo}
+            <a href={project.demo}>Live Demo</a>
+          {/if}
+          <div class="project-details">
+            <h3>{project.title} Details</h3>
+            <p>{project.details}</p>
+          </div>
         </div>
-      </div>
+        <div class="footer-container">
+          {#each project.technologies as tech}
+            {#if tech.image}
+              <img src={tech.image} alt={tech.name} />
+            {/if}
+          {/each}
+        </div>
       {/if}
     </div>
   {/each}
 </section>
 
 <style>
+
   /* Grid Layout */
   .project-grid {
     display: grid;
@@ -198,36 +238,54 @@
   /* Expanded Project Card Styles */
   .project-card.expanded {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100vh;
     width: 100vw;
     overflow: auto;
     max-width: 100%;
-    box-sizing: border-box;
     max-height: 100%;
     z-index: 1;
     grid-row-start: 1;
     grid-column: 1 / -1;
   }
+  .project-card.expanded .info-container,
+  .project-card.expanded .image-container {
+    flex: none;
+  }
+
+  .project-card.expanded .footer-container {
+    flex: 1;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 
   .project-card.expanded .image-container {
-  height: auto;
-  width: auto;
-}
+    height: auto;
+    width: auto;
+  }
 
-.project-card.expanded .info-container {
-  flex: 1; /* Takes up 1 portion of the available space */
-  padding: 20px;
-}
+  .project-card.expanded .info-container {
+    flex: 1;
+    padding: 20px;
+  }
 
-
-.project-card.expanded img {
-  height: auto;
-  width: 100%;
-  object-fit: contain;
-}
-
+  .project-card.expanded .footer-container {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .project-card.expanded img {
+    height: auto;
+    width: 100%;
+    object-fit: contain;
+  }
 
   /* Text and Link Styles */
   .project-card h2,
@@ -285,6 +343,18 @@
     left: 0;
   }
 
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .footer-container img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+  }
   /* Responsive Styles */
   @media (max-width: 768px) {
     .project-grid {
