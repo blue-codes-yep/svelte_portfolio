@@ -1,4 +1,7 @@
 <script lang="ts">
+  // Need to focus cards in view, as well as add more containers inside the expanded cards for information
+  // Also need to un-expand a card if another is clicked.
+
   type Project = {
     showDetails: Boolean;
     title: string;
@@ -9,7 +12,7 @@
     details: string;
     image: string | null;
     image2: string | null;
-  };
+  }; 
 
   let projects: Project[] = [
     {
@@ -209,7 +212,6 @@
   }
 
   .project-card.expanded .image-container {
-  flex: 1; /* Takes up 1 portion of the available space */
   height: auto;
   width: auto;
 }
