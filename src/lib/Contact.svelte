@@ -16,7 +16,7 @@
       return;
     }
 
-    // Here you can send the form data to a server or handle it as needed
+    
     console.log('Form submitted:', { name, email, subject, message });
 
     // Optionally, reset the form fields
@@ -26,9 +26,7 @@
     message = '';
   }
 
-  onMount(() => {
-    // Additional initialization code if needed
-  });
+
 </script>
 
 
