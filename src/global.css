@@ -4,9 +4,9 @@
   --text-color: #333;
   --neon-color: #473380;
   --neon-color-text: #00BFFF;
-  --border-color: #292731; /* You can change this to your desired border color */
+  --border-color: #292731; 
   --section-background-color: #f5f5f5;
-  --background-text-color: #0000FF; /* You can change this to your desired background color */
+  --background-text-color: #0000FF; 
 }
 
 /* Dark Theme */
@@ -15,8 +15,8 @@
   --text-color: #f5f5f5;
   --neon-color: #0095ff;
   --neon-color-text: #455167;
-  --border-color: #455167; /* You can change this to your desired border color */
-  --section-background-color: #292731; /* You can change this to your desired background color */
+  --border-color: #455167; 
+  --section-background-color: #292731; 
 }
 
 

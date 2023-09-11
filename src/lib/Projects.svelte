@@ -38,6 +38,23 @@
         "Related technologies: Python, Flask, Base64, IO, Boto3, spaCy, Langchain, numpy, PIL, moviepy, pydub, celery, Javascript, React & Material UI",
     },
     {
+      title: "Freelance Livestream App",
+      image: null,
+      image2: null,
+      description:
+        "An application to help job seekers by streamlining searches.",
+      technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
+    {
       title: "Cryptid-Refactor",
       image: "LogOnPage.png",
       image2: null,
@@ -109,6 +126,40 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
+      technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
+    {
+      title: "Amazon Price Tracker",
+      image: null,
+      image2: null,
+      description:
+        "Scrapes urls given in the trackers csv file. Will give price, title, review count, if in stock, and export it to an excel file. Done as practice with beautifulsoup as GPU prices have been dropping, and have been curious to see how they drop over the coming months.You can set a scheduled run of the script for it to run say once a day..etc.",
+      technologies: [
+        { name: "Python", image: "/python.png" },
+        { name: "Javascript", image: "/js.png" },
+        { name: "Gpt4", image: "/gpt4.png" },
+        { name: "Flask", image: "/flask.png" },
+      ],
+      github: "https://github.com/jamariod/JobFinder",
+      demo: null,
+      details:
+        "Member of a 3-person development team building an application...",
+    },
+    {
+      title: "Discord Bot",
+      image: null,
+      image2: null,
+      description:
+        "Discord bot that currently allows users, to set-roles, check their rank for a game called Valorant, as well as upload custom emojis.",
       technologies: [
         { name: "Python", image: "/python.png" },
         { name: "Javascript", image: "/js.png" },
