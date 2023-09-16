@@ -418,11 +418,11 @@
   /* Responsive Styles */
   @media (max-width: 768px) {
     .project-grid {
-      grid-template-columns: repeat(2, 1fr); /* Change to 2 columns */
+      grid-template-columns: repeat(2, 1fr); 
     }
 
     .project-card {
-      width: 40vw; /* Adjust width */
+      width: 40vw; 
     }
 
     .image-container {
@@ -432,7 +432,7 @@
 
   @media (max-width: 480px) {
     .project-grid {
-      grid-template-columns: 1fr; /* Single column layout */
+      grid-template-columns: 1fr; 
     }
 
     .project-card {
