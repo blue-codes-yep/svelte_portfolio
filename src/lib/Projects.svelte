@@ -197,8 +197,10 @@
 
 
     if (selectedProject) {
-        animateScroll.scrollTo({ element: "#projects", duration: 100 });
-    }
+    animateScroll.scrollTo({ element: "#projects", duration: 100 });
+  } else {
+    animateScroll.scrollTo({ element: "#projects", duration: 100 });
+  }
   }
 </script>
 
