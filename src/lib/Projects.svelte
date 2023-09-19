@@ -141,7 +141,7 @@
     },
     {
       title: "Discord Bot",
-      image: null,
+      image: "discord.png",
       image2: null,
       description:
         "Discord bot that currently allows users, to set-roles, check their rank for a game called Valorant, as well as upload custom emojis.",
