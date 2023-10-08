@@ -53,62 +53,60 @@
       image: "landing.png",
       image2: "live.png",
       description:
-        "Solo freelance project built for an Upwork client. That provides a live-streaming experience using Zoom's SDK.",
+        "Solo freelance project built for an Upwork client. That provides a live-streaming experience using Zoom's SDK. To connect users with the given information, to connect, chat, and video call all within zoom's environment within the customers website.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: "https://sexscotchandcigarslive.com/",
       details:
-        "Built with Zoom SDK, React, HTML & CSS. Used Amazon Web Services and NGINX for backend. Overcame design and user interface challenges with animation and styles",
+        "Built using Zoom SDK, React, HTML & CSS. Used Amazon Web Services and NGINX for backend. Overcame design and user interface challenges with animation and styles",
     },
     {
       title: "Cryptid-Refactor",
       image: "LogOnPage.png",
       image2: null,
-      description: "A refactoring project.",
+      description: "Cryptid-Refactor is a 3-person team project that aims to provide a secure and anonymous chat messaging experience. The application allows users to create chat rooms that are password-protected (hashed by bcrypt) and share the password with friends. The project uses socket.io for real-time messaging and does not store any chat information. The application was initially started in NEXT.js but was later refactored to Create React App due to challenges with global state and CSS rendering. The project has overcome several challenges, including the addition of multiple channels and password-protected chats.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/aaroncosmith/Cryptid-Refactor",
       demo: null,
-      details: "More details about Cryptid-Refactor project...",
+      details: "Related Tech: Frontend: Javascript,React, StyledComponents Backend: Node.js, Express, Socket.io, PostgreSQL, Notable Node Modules: bcrypt, dotenv, express-session, pg-promise, socket.io-client",
     },
     {
       title: "Job Finder",
       image: "jobfinder-jobs.gif",
       image2: null,
       description:
-        "An application to help job seekers by streamlining searches.",
+        "Team project developed during a 1-week sprint as part of a coding bootcamp. JobFinder is a web application designed to streamline the job search process for users. It allows users to register and login, view recent developer job listings, and search for jobs based on various parameters. The project overcame challenges related to user authentication and job data scraping, and it features a user-friendly interface with Bootstrap.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
-        "Member of a 3-person development team building an application...",
+        "Related Tech: Front-End: HTML, CSS, Bootstrap, JavaScript, Back-End: Node.js, Express, PostgreSQL, Notable Node Modules: axios, bcrypt, cheerio, dotenv, ejs, express-session, pg-promise, puppeteer",
     },
     {
       title: "Fire Stocks",
       image: "firestocks.png",
       image2: null,
       description:
-        "An application to help job seekers by streamlining searches.",
+        "Solo developed Python application that uses spaCy for NLP, pandas for data manipulation, yfinance for fetching stock data, and streamlit for the UI. It allows users to add RSS links for stock news and displays various stock metrics in a DataFrame. The application also practices with BeautifulSoup for web scraping.",
       technologies: [
         { name: "Python", image: "/python.png" },
-        { name: "Javascript", image: "/js.png" },
-        { name: "Flask", image: "/flask.png" },
       ],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
-        "Member of a 3-person development team building an application...",
+        "Related Tech: Python, spaCy, pandas, yfinance, streamlit, BeautifulSoup",
     },
     {
       title: "24GO",
       image: "24go.png",
       image2: null,
       description:
-        "An application to help job seekers by streamlining searches.",
+        "Member of a 3-person development, this project is a front-end web application built with JavaScript, HTML, and CSS. It uses multiple APIs to aggregate events like sports, music, and comedy based on the user's location. The application also provides weather information and links to Wikipedia pages for nearby cultural or historic sites.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
-        "Member of a 3-person development team building an application...",
+        "Related Tech: JavaScript, HTML, CSS, APIs (eventful, mediawiki, foursquare, weatherapi)",
     },
     {
       title: "Steam Market Analysis - AI",
@@ -116,27 +114,26 @@
       image: "marketprediction.png",
       image2: null,
       description:
-        " I developed a machine learning model aimed at predicting Steam Market prices based on historical data. Utilizing Python and TensorFlow, I built a neural network that takes into account various features such as average price and total volume to make its predictions. The model is trained on daily, weekly, and monthly datasets, allowing for a comprehensive understanding of market trends.",
+        "Solo project focused on creating an AI-based Steam Market Analyzer using Python. The project aims to predict market trends for Steam items by leveraging neural networks. The application is divided into two main parts: data gathering and analysis. The data gathering is done through web scraping techniques, while the analysis is performed using a neural network model built with TensorFlow. The project has undergone several updates to improve data handling and model efficiency, including the addition of more neural network layers.",
       technologies: [{ name: "Python", image: "/python.png" }],
       github: "https://github.com/blue-codes-yep/AI_STEAM",
       demo: null,
       details:
-        "Solo Developed project that includes a web scraper, and a machine learning model to predict the price of items on the Steam Market. The web scraper scrapes the Steam Market for the item's price, and the machine learning model predicts the price of the item based on the scraped data. The model is then used to predict the price of the item in the future.",
+        "Related Tech: Python, TensorFlow, Pandas, Web Scraping (BeautifulSoup)",
     },
     {
       title: "Amazon Price Tracker",
-      image: null,
+      image: "amzdata.png",
       image2: null,
       description:
-        "Scrapes urls given in the trackers csv file. Will give price, title, review count, if in stock, and export it to an excel file. Done as practice with beautifulsoup as GPU prices have been dropping, and have been curious to see how they drop over the coming months.You can set a scheduled run of the script for it to run say once a day..etc.",
+        "A Python application designed to scrape GPU prices from Amazon using BeautifulSoup. It targets URLs specified in a CSV file named trackers. The scraper fetches various data points including the product's price, title, review count, and stock availability. This data is then exported to an Excel file for further analysis. It offers the flexibility to schedule runs, allowing for daily or periodic data collection.",
       technologies: [
         { name: "Python", image: "/python.png" },
-        { name: "Javascript", image: "/js.png" },
       ],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
-        "Solo Developed project to automate the process of checking prices of items on Amazon, and to see how they change over time. Saving them in a csv file for later analysis.",
+        "Related Tech: Python, BeautifulSoup, Pandas, Requests, Excel",
     },
     {
       title: "Discord Bot",
@@ -403,6 +400,7 @@
   }
 
   .footer-container img {
+    margin-top: 2px;
     max-width: 100px;
     max-height: 100px;
     margin-right: 10px;
