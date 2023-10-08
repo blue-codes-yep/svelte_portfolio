@@ -4,14 +4,14 @@
 
 <nav class="navbar">
   <a href="/" class="$page.path === '/' ? 'active' : ''">
+    <div class="home-svg">
     <svg
-      class="home-svg"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style="stroke: var(--home-svg-stroke);"
-      width="24"
-      height="24"
+      width="25"
+      height="25"
       ><g id="SVGRepo_bgCarrier" stroke-width="0" /><g
         id="SVGRepo_tracerCarrier"
         stroke-linecap="round"
@@ -29,43 +29,46 @@
           stroke-linecap="round"
         />
       </g></svg
-    >
+    ></div>
   </a>
-  <a href="#about" class="$page.path === '/#about' ? 'active' : ''">About</a>
-  <a href="#project" class="$page.path === '/#project' ? 'active' : ''"
-    >Projects</a
-  >
-  <a href="#contact" class="$page.path === '/#contact' ? 'active' : ''"
-    >Contact</a
-  >
+  <div class="nav-about"><a href="#about" class="$page.path === '/#about' ? 'active' : ''">About</a></div>
+  <div class="nav-projects"><a href="#project" class="$page.path === '/#project' ? 'active' : ''">Projects</a></div>
+  <div class="nav-contact"><a href="#contact" class="$page.path === '/#contact' ? 'active' : ''">Contact</a></div>
   <ThemeToggle />
 </nav>
 
 <style>
-  .home-svg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1000; /* Ensures it's above other elements */
+.navbar {
+  display: grid;
+  grid-template-columns: 1fr 5fr 5fr 1fr; /* Adjust as needed */
+  grid-template-areas: 
+    "home about projects contact toggle";
 }
 
-  .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    padding-bottom: 25px;
-  }
+.home-svg {
+  position: fixed;
+  grid-area: home;
+  z-index: 1;
+}
 
-  .navbar a {
-    margin: 0 200px;
-    text-decoration: none;
-    color: var(--text-color);
-    transition: color 0.3s ease;
-    font-weight: 500;
-  }
+.nav-about {
+  grid-area: about;
+}
 
-  .navbar a:hover {
-    text-decoration: underline;
-  }
+.nav-projects {
+  grid-area: projects;
+}
+
+.nav-contact {
+  grid-area: contact;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  transition: all 0.2s ease-in-out;
+}
 </style>
