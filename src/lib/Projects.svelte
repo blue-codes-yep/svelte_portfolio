@@ -227,13 +227,7 @@
 
 <style>
   /* Custom Classes If Needed */
-  .discord-bot {
-   
-  }
 
-  .steam-market {
-    
-  }
 
   /* Project Grid Styles */
   .project-grid {
@@ -339,8 +333,6 @@
   /* Text and Link Styles */
   .project-card h2,
   .project-card p,
-  .project-card ul,
-  .project-card li,
   .project-card a {
     font-size: 1rem;
   }
@@ -357,17 +349,6 @@
 
   .project-card p {
     margin-bottom: 10px;
-  }
-
-  .project-card ul {
-    list-style: none;
-    padding: 0;
-    margin-bottom: 10px;
-  }
-
-  .project-card li {
-    margin-right: 5px;
-    display: inline-block;
   }
 
   .project-card a {

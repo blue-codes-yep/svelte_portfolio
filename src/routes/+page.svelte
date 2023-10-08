@@ -63,7 +63,7 @@
     color: var(--background-text-color);
     cursor: default;
     z-index: 0;
-    margin: 50px;
+    margin-top: 75px;
   }
 
   .background-text:hover {
