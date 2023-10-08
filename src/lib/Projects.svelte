@@ -1,4 +1,11 @@
 <script lang="ts">
+  $: if (projects) {
+    projects.forEach((project) => {
+      if (project.customClass) {
+        console.log(`customClass for ${project.title}: ${project.customClass}`);
+      }
+    });
+  }
   import * as animateScroll from "svelte-scrollto";
 
   type Technology = {
@@ -7,6 +14,7 @@
   };
 
   type Project = {
+    customClass?: string;
     showDetails: Boolean;
     title: string;
     description: string;
@@ -30,7 +38,7 @@
         { name: "Python", image: "/python.png" },
         { name: "Flask", image: "/flask.png" },
         { name: "Javascript", image: "/js.png" },
-        {name: "🦜🔗 LangChain", image: "/langchain.png"},
+        { name: "🦜🔗 LangChain", image: "/langchain.png" },
         { name: "React", image: "/react.png" },
         { name: "Material UI", image: "/materialui.png" },
         { name: "Gpt4", image: "/gpt4.png" },
@@ -46,9 +54,7 @@
       image2: "live.png",
       description:
         "Solo freelance project built for an Upwork client. That provides a live-streaming experience using Zoom's SDK.",
-      technologies: [
-        { name: "Javascript", image: "/js.png" },
-      ],
+      technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: "https://sexscotchandcigarslive.com/",
       details:
@@ -59,9 +65,7 @@
       image: "LogOnPage.png",
       image2: null,
       description: "A refactoring project.",
-      technologies: [
-        { name: "Javascript", image: "/js.png" },
-      ],
+      technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/aaroncosmith/Cryptid-Refactor",
       demo: null,
       details: "More details about Cryptid-Refactor project...",
@@ -72,9 +76,7 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-      technologies: [
-        { name: "Javascript", image: "/js.png" },
-      ],
+      technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -102,9 +104,7 @@
       image2: null,
       description:
         "An application to help job seekers by streamlining searches.",
-      technologies: [
-        { name: "Javascript", image: "/js.png" },
-      ],
+      technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -112,13 +112,12 @@
     },
     {
       title: "Steam Market Analysis - AI",
-      image: null,
+      customClass: "steam-market",
+      image: "marketprediction.png",
       image2: null,
       description:
         " I developed a machine learning model aimed at predicting Steam Market prices based on historical data. Utilizing Python and TensorFlow, I built a neural network that takes into account various features such as average price and total volume to make its predictions. The model is trained on daily, weekly, and monthly datasets, allowing for a comprehensive understanding of market trends.",
-      technologies: [
-        { name: "Python", image: "/python.png" },
-      ],
+      technologies: [{ name: "Python", image: "/python.png" }],
       github: "https://github.com/blue-codes-yep/AI_STEAM",
       demo: null,
       details:
@@ -141,13 +140,12 @@
     },
     {
       title: "Discord Bot",
+      customClass: "discord-bot",
       image: "discord.png",
       image2: null,
       description:
         "Discord bot that currently allows users, to set-roles, check their rank for a game called Valorant, as well as upload custom emojis.",
-      technologies: [
-        { name: "Python", image: "/python.png" },
-      ],
+      technologies: [{ name: "Python", image: "/python.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -177,12 +175,11 @@
     projects[projectIndex] = project;
     projects = [...projects];
 
-
     if (selectedProject) {
-    animateScroll.scrollTo({ element: "#projects", duration: 100 });
-  } else {
-    animateScroll.scrollTo({ element: "#projects", duration: 100 });
-  }
+      animateScroll.scrollTo({ element: "#projects", duration: 100 });
+    } else {
+      animateScroll.scrollTo({ element: "#projects", duration: 100 });
+    }
   }
 </script>
 
@@ -197,7 +194,9 @@
       aria-label="View project details"
     >
       <h2>{project.title}</h2>
-      <div class="image-container">
+      <div
+        class="image-container {project.customClass ? project.customClass : ''}"
+      >
         <img
           src={project.image}
           alt={project.title}
@@ -230,7 +229,16 @@
 </section>
 
 <style>
-  /* Grid Layout */
+  /* Custom Classes If Needed */
+  .discord-bot {
+   
+  }
+
+  .steam-market {
+    
+  }
+
+  /* Project Grid Styles */
   .project-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -273,7 +281,7 @@
 
   /* Image Container */
   .image-container {
-    height: 350px;
+    height: 100%;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -399,14 +407,15 @@
     max-height: 100px;
     margin-right: 10px;
   }
+
   /* Responsive Styles */
   @media (max-width: 768px) {
     .project-grid {
-      grid-template-columns: repeat(2, 1fr); 
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .project-card {
-      width: 40vw; 
+      width: 40vw;
     }
 
     .image-container {
@@ -416,7 +425,7 @@
 
   @media (max-width: 480px) {
     .project-grid {
-      grid-template-columns: 1fr; 
+      grid-template-columns: 1fr;
     }
 
     .project-card {
