@@ -53,9 +53,7 @@
         </g></svg
       >
     </a>
-    {#if showText}
-      <div class="animated-text"><h2>Dev. Portfolio</h2></div>
-    {/if}
+
   </div>
   <p>Explore my portfolio and learn more about me.</p>
 </div>
