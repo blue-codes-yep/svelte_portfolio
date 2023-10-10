@@ -10,8 +10,8 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style="stroke: var(--home-svg-stroke);"
-      width="25"
-      height="25"
+      width="27"
+      height="30"
       ><g id="SVGRepo_bgCarrier" stroke-width="0" /><g
         id="SVGRepo_tracerCarrier"
         stroke-linecap="round"
@@ -40,7 +40,7 @@
 <style>
 .navbar {
   display: grid;
-  grid-template-columns: 1fr 5fr 5fr 1fr; /* Adjust as needed */
+  grid-template-columns: 1fr 5fr 5fr 1fr; 
   grid-template-areas: 
     "home about projects contact toggle";
 }
@@ -49,6 +49,7 @@
   position: fixed;
   grid-area: home;
   z-index: 1;
+  margin-left: 5px;
 }
 
 .nav-about {

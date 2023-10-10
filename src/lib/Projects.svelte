@@ -158,16 +158,16 @@
     }
   }
   function showDetails(project: Project): void {
-    // Un-expand the previously selected project
+    
     if (selectedProject && selectedProject !== project) {
       selectedProject.showDetails = false;
     }
 
-    // Toggle the details for the clicked project
+    
     project.showDetails = !project.showDetails;
     selectedProject = project.showDetails ? project : null;
 
-    // Update the projects array to reflect the changes
+    
     const projectIndex = projects.findIndex((p) => p.title === project.title);
     projects[projectIndex] = project;
     projects = [...projects];
