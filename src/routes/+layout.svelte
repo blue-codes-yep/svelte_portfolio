@@ -59,7 +59,7 @@
           },
           move: {
             enable: true,
-            speed: 7,
+            speed: 4,
             direction: "bottom",
             outMode: "out",
           },
@@ -133,6 +133,7 @@
       index >= 200;
 
     particlesArray.forEach((particle: Particle, index: number) => {
+      
       if (isEmitterParticle(particle, index)) {
         let trails = emitterTrails.get(particle.id);
         if (!trails) {
