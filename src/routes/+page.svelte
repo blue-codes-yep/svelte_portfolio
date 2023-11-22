@@ -13,12 +13,13 @@
     <h1 class="title">Blue Codes</h1>
     <h2 class="subtitle">Software Engineer</h2>
   </div>
-  <section id="projects" class="main-section">
-    <Projects />
-  </section>
   <section id="about-me" class="main-section">
     <About />
   </section>
+  <section id="projects" class="main-section">
+    <Projects />
+  </section>
+
   <section id="contact" class="main-section">
     <Contact />
   </section>
@@ -42,11 +43,12 @@
 
   #about-me {
     padding: 80px;
+    margin-bottom: 350px;
     border: 2px solid var(--border-color);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--section-background-color);
     transition: all 0.3s ease;
+    opacity: 0.95;
   }
 
   #about-me:hover {

@@ -64,11 +64,13 @@
       title: "Cryptid-Refactor",
       image: "LogOnPage.png",
       image2: null,
-      description: "Cryptid-Refactor is a 3-person team project that aims to provide a secure and anonymous chat messaging experience. The application allows users to create chat rooms that are password-protected (hashed by bcrypt) and share the password with friends. The project uses socket.io for real-time messaging and does not store any chat information. The application was initially started in NEXT.js but was later refactored to Create React App due to challenges with global state and CSS rendering. The project has overcome several challenges, including the addition of multiple channels and password-protected chats.",
+      description:
+        "Cryptid-Refactor is a 3-person team project that aims to provide a secure and anonymous chat messaging experience. The application allows users to create chat rooms that are password-protected (hashed by bcrypt) and share the password with friends. The project uses socket.io for real-time messaging and does not store any chat information. The application was initially started in NEXT.js but was later refactored to Create React App due to challenges with global state and CSS rendering. The project has overcome several challenges, including the addition of multiple channels and password-protected chats.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
       github: "https://github.com/aaroncosmith/Cryptid-Refactor",
       demo: null,
-      details: "Related Tech: Frontend: Javascript,React, StyledComponents Backend: Node.js, Express, Socket.io, PostgreSQL, Notable Node Modules: bcrypt, dotenv, express-session, pg-promise, socket.io-client",
+      details:
+        "Related Tech: Frontend: Javascript,React, StyledComponents Backend: Node.js, Express, Socket.io, PostgreSQL, Notable Node Modules: bcrypt, dotenv, express-session, pg-promise, socket.io-client",
     },
     {
       title: "Job Finder",
@@ -88,9 +90,7 @@
       image2: null,
       description:
         "Solo developed Python application that uses spaCy for NLP, pandas for data manipulation, yfinance for fetching stock data, and streamlit for the UI. It allows users to add RSS links for stock news and displays various stock metrics in a DataFrame. The application also practices with BeautifulSoup for web scraping.",
-      technologies: [
-        { name: "Python", image: "/python.png" },
-      ],
+      technologies: [{ name: "Python", image: "/python.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
       details:
@@ -127,13 +127,10 @@
       image2: null,
       description:
         "A Python application designed to scrape GPU prices from Amazon using BeautifulSoup. It targets URLs specified in a CSV file named trackers. The scraper fetches various data points including the product's price, title, review count, and stock availability. This data is then exported to an Excel file for further analysis. It offers the flexibility to schedule runs, allowing for daily or periodic data collection.",
-      technologies: [
-        { name: "Python", image: "/python.png" },
-      ],
+      technologies: [{ name: "Python", image: "/python.png" }],
       github: "https://github.com/jamariod/JobFinder",
       demo: null,
-      details:
-        "Related Tech: Python, BeautifulSoup, Pandas, Requests, Excel",
+      details: "Related Tech: Python, BeautifulSoup, Pandas, Requests, Excel",
     },
     {
       title: "Discord Bot",
@@ -158,16 +155,13 @@
     }
   }
   function showDetails(project: Project): void {
-    
     if (selectedProject && selectedProject !== project) {
       selectedProject.showDetails = false;
     }
 
-    
     project.showDetails = !project.showDetails;
     selectedProject = project.showDetails ? project : null;
 
-    
     const projectIndex = projects.findIndex((p) => p.title === project.title);
     projects[projectIndex] = project;
     projects = [...projects];
@@ -227,7 +221,6 @@
 
 <style>
   /* Custom Classes If Needed */
-
 
   /* Project Grid Styles */
   .project-grid {

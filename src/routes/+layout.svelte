@@ -3,7 +3,7 @@
   import Footer from "$lib/Footer.svelte";
   import Particles from "svelte-particles";
   import { loadFull } from "tsparticles";
-  import type { Particle } from "tsparticles-engine/types/Core/Particle"; // Import the Particle type
+  import type { Particle } from "tsparticles-engine/types/Core/Particle";
 
   let particlesConfig = {
     particles: {
@@ -133,7 +133,6 @@
       index >= 200;
 
     particlesArray.forEach((particle: Particle, index: number) => {
-      
       if (isEmitterParticle(particle, index)) {
         let trails = emitterTrails.get(particle.id);
         if (!trails) {
@@ -148,7 +147,7 @@
         });
 
         const currentTime = Date.now();
-        const trailDuration = 2500; 
+        const trailDuration = 2500;
         while (
           trails.length > 0 &&
           currentTime - trails[0].timestamp > trailDuration
@@ -156,11 +155,11 @@
           trails.shift();
         }
 
-      // Limit the number of trail points
-      const maxTrailPoints = 1500; 
-      if (trails.length > maxTrailPoints) {
-        trails.shift();
-      }
+        // Limit the number of trail points
+        const maxTrailPoints = 200;
+        if (trails.length > maxTrailPoints) {
+          trails.shift();
+        }
 
         for (let i = 1; i < trails.length; i++) {
           const start = trails[i - 1];
@@ -176,9 +175,9 @@
               end.x,
               end.y
             );
-            gradient.addColorStop(0, `rgba(97, 102, 125, ${.05 - ageStart})`);
+            gradient.addColorStop(0, `rgba(97, 102, 125, ${0.05 - ageStart})`);
 
-            gradient.addColorStop(1, `rgba(97, 102, 125, ${.75 - ageEnd})`);
+            gradient.addColorStop(1, `rgba(97, 102, 125, ${0.75 - ageEnd})`);
 
             ctx.beginPath();
             ctx.moveTo(start.x, start.y);

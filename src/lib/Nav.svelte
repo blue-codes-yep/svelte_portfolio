@@ -10,7 +10,7 @@
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       style="stroke: var(--home-svg-stroke);"
-      width="27"
+      width="30"
       height="30"
       ><g id="SVGRepo_bgCarrier" stroke-width="0" /><g
         id="SVGRepo_tracerCarrier"
