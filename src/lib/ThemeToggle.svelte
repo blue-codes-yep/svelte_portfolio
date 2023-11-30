@@ -1,10 +1,15 @@
 <script>
-  let theme = "light";
+  import { theme } from '$lib/store';
+
+
 
   function toggleTheme() {
-    theme = theme === "light" ? "dark" : "light";
-    document.documentElement.setAttribute("data-theme", theme);
-  }
+    if ($theme === 'dark') {
+        theme.set('light');
+    } else {
+        theme.set('dark');
+    }
+}
 </script>
 
 <button on:click={toggleTheme} class="theme-toggle">

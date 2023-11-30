@@ -1,6 +1,6 @@
 /* Light Theme */
 :root {
-  --background-color: #e0e0e0;
+  --background-color: #C0C0C0;
   --home-svg-stroke: #000000;
   --text-color: #333;
   --neon-color: #473380;
@@ -8,6 +8,8 @@
   --border-color: #292731; 
   --section-background-color: #f5f5f5;
   --background-text-color: #0000FF; 
+  --star-color-light: #C0C0C0; /* Soft Gray for light mode */
+  --star-color-dark: #FFFFFF;  /* White for dark mode */
 }
 
 /* Dark Theme */

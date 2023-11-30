@@ -4,10 +4,19 @@
   import Projects from "$lib/Projects.svelte";
   import Contact from "$lib/Contact.svelte";
   import Skills from "$lib/Skills.svelte";
+  import { theme } from '$lib/store';
+
+  /**
+     * @type {HTMLDivElement}
+     */
+  let containerElement;
+  $: if (containerElement) {
+    containerElement.dataset.theme = $theme;
+  }
 </script>
 
 <Skills />
-<div class="container">
+<div bind:this={containerElement} class="container">
   <Landing />
   <div class="background-text">
     <h1 class="title">Blue Codes</h1>

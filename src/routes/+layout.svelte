@@ -4,8 +4,37 @@
   import Particles from "svelte-particles";
   import { loadFull } from "tsparticles";
   import type { Particle } from "tsparticles-engine/types/Core/Particle";
+  import { theme } from "$lib/store";
+  import { browser } from "$app/environment";
+  import { onMount } from "svelte";
 
-  let particlesConfig = {
+  let starColor: string;
+
+  onMount(() => {
+    // Subscribe to theme changes and update the body's data-theme attribute
+    const unsubscribe = theme.subscribe((value) => {
+      document.body.setAttribute("data-theme", value);
+    });
+
+    // Cleanup subscription when the component is destroyed
+    return () => {
+      unsubscribe();
+    };
+  });
+
+  $: if (browser) {
+    starColor =
+      $theme === "dark"
+        ? getComputedStyle(document.documentElement).getPropertyValue(
+            "--star-color-dark",
+          )
+        : getComputedStyle(document.documentElement).getPropertyValue(
+            "--star-color-light",
+          );
+    console.log(starColor); // Debugging output
+  }
+
+  $: particlesConfig = {
     particles: {
       number: {
         value: 200,
@@ -32,7 +61,7 @@
         },
       },
       color: {
-        value: "#00BFFF",
+        value: starColor,
       },
     },
     emitters: [
@@ -52,7 +81,7 @@
         },
         particles: {
           color: {
-            value: "#737373",
+            value: starColor,
           },
           links: {
             enable: false,
@@ -90,7 +119,6 @@
       },
     },
   };
-
   let particlesCanvas: HTMLCanvasElement;
   let particlesArray: Particle[] = [];
 
@@ -173,7 +201,7 @@
               start.x,
               start.y,
               end.x,
-              end.y
+              end.y,
             );
             gradient.addColorStop(0, `rgba(97, 102, 125, ${0.05 - ageStart})`);
 
