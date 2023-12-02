@@ -55,7 +55,7 @@
       description:
         "Solo freelance project built for an Upwork client. That provides a live-streaming experience using Zoom's SDK. To connect users with the given information, to connect, chat, and video call all within zoom's environment within the customers website.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
-      github: "https://github.com/jamariod/JobFinder",
+      github: null,
       demo: "https://sexscotchandcigarslive.com/",
       details:
         "Built using Zoom SDK, React, HTML & CSS. Used Amazon Web Services and NGINX for backend. Overcame design and user interface challenges with animation and styles",
@@ -91,7 +91,7 @@
       description:
         "Solo developed Python application that uses spaCy for NLP, pandas for data manipulation, yfinance for fetching stock data, and streamlit for the UI. It allows users to add RSS links for stock news and displays various stock metrics in a DataFrame. The application also practices with BeautifulSoup for web scraping.",
       technologies: [{ name: "Python", image: "/python.png" }],
-      github: "https://github.com/jamariod/JobFinder",
+      github: "https://github.com/blue-codes-yep/stock_analysis",
       demo: null,
       details:
         "Related Tech: Python, spaCy, pandas, yfinance, streamlit, BeautifulSoup",
@@ -103,7 +103,7 @@
       description:
         "Member of a 3-person development, this project is a front-end web application built with JavaScript, HTML, and CSS. It uses multiple APIs to aggregate events like sports, music, and comedy based on the user's location. The application also provides weather information and links to Wikipedia pages for nearby cultural or historic sites.",
       technologies: [{ name: "Javascript", image: "/js.png" }],
-      github: "https://github.com/jamariod/JobFinder",
+      github: "https://github.com/blue-codes-yep/Group-Front-End-Project",
       demo: null,
       details:
         "Related Tech: JavaScript, HTML, CSS, APIs (eventful, mediawiki, foursquare, weatherapi)",
@@ -128,7 +128,7 @@
       description:
         "A Python application designed to scrape GPU prices from Amazon using BeautifulSoup. It targets URLs specified in a CSV file named trackers. The scraper fetches various data points including the product's price, title, review count, and stock availability. This data is then exported to an Excel file for further analysis. It offers the flexibility to schedule runs, allowing for daily or periodic data collection.",
       technologies: [{ name: "Python", image: "/python.png" }],
-      github: "https://github.com/jamariod/JobFinder",
+      github: "https://github.com/blue-codes-yep/Amazon_Scraper",
       demo: null,
       details: "Related Tech: Python, BeautifulSoup, Pandas, Requests, Excel",
     },
@@ -140,7 +140,7 @@
       description:
         "Discord bot that currently allows users, to set-roles, check their rank for a game called Valorant, as well as upload custom emojis.",
       technologies: [{ name: "Python", image: "/python.png" }],
-      github: "https://github.com/jamariod/JobFinder",
+      github: "https://github.com/blue-codes-yep/BluesDiscordBot",
       demo: null,
       details:
         "Solo Developed project to accomplish a few tasks I wanted to automate within a Discord server.",
