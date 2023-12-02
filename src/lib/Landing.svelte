@@ -8,7 +8,7 @@
   onMount(() => {
     setTimeout(() => {
       animateScroll.scrollTo({ element: "#projects", duration: 2000 });
-    }, 2500); // 2 seconds delay
+    }, 2500); 
   });
 </script>
 

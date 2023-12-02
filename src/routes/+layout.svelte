@@ -31,7 +31,7 @@
         : getComputedStyle(document.documentElement).getPropertyValue(
             "--star-color-light",
           );
-    console.log(starColor); // Debugging output
+    console.log(starColor); 
   }
 
   $: particlesConfig = {
@@ -254,13 +254,5 @@
     z-index: 1;
   }
 
-  .particles-background {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100% !important;
-    z-index: 0 !important;
-    pointer-events: none;
-  }
+
 </style>

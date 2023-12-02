@@ -28,7 +28,7 @@
 
   let projects: Project[] = [
     {
-      title: "AI Video-Genteration",
+      title: "AI Video-Generation",
       image:
         "68747470733a2f2f692e696d6775722e636f6d2f5538316e71486e2e706e67.png",
       image2: "aiat2.png",
