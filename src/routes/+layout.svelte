@@ -7,6 +7,7 @@
   import { theme } from "$lib/store";
   import { browser } from "$app/environment";
   import { onMount } from "svelte";
+  import 'normalize.css';
 
   let starColor: string;
 

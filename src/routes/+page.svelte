@@ -90,10 +90,10 @@
   }
 
   .subtitle {
-    font-size: 2rem;
-    font-weight: normal;
+    font-size: 2.1rem;
+    font-weight: bold;
     line-height: 1;
-    margin-left: 100px;
+    margin-left: 150px;
   }
 
   @keyframes neonEffect {
@@ -104,4 +104,21 @@
       text-shadow: 0 0 20px #0095ff, 0 0 30px #0095ff, 0 0 40px #0095ff;
     }
   }
+
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .container {
+      margin-left: 50px;
+    }
+
+    #about-me {
+      padding: 40px; /* Reduced padding */
+      margin-top: 250px;
+      margin-bottom: 200px; /* Reduced margin */
+      /* Adjust other styles as needed */
+    }
+  }
+
+
 </style>

@@ -6,6 +6,7 @@
       }
     });
   }
+
   import * as animateScroll from "svelte-scrollto";
 
   type Technology = {
@@ -387,7 +388,7 @@
     }
 
     .project-card {
-      width: 40vw;
+      width: 70vw;
     }
 
     .image-container {
