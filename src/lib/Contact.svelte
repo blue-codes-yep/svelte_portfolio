@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import emailjs from "@emailjs/browser";
 
   let name: string = "";
   let email: string = "";
@@ -16,13 +16,30 @@
       return;
     }
 
-    console.log("Form submitted:", { name, email, subject, message });
+    // Prepare the data to be sent
+    const templateParams = {
+      from_name: name,
+      from_email: email,
+      subject: subject,
+      message: message
+    };
 
-    // Optionally, reset the form fields
-    name = "";
-    email = "";
-    subject = "";
-    message = "";
+    emailjs.send("service_3l5x6vo", "template_m2ljvc6", templateParams, "2g3dRHAuSfMG0NL-6")
+      .then((response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        // Reset the form fields after successful email sending
+        name = "";
+        email = "";
+        subject = "";
+        message = "";
+        alert("Your message has been sent successfully!");
+      })
+      .catch((err) => {
+        console.log("FAILED...", err);
+        alert("Failed to send the message, please try again.");
+      });
+
+    console.log("Form submitted:", { name, email, subject, message });
   }
 </script>
 

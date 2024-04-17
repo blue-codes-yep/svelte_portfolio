@@ -22,6 +22,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@emailjs/browser": "^4.3.3",
 		"normalize.css": "^8.0.1",
 		"svelte-particles": "^2.12.0",
 		"tsparticles": "^2.12.0",
