@@ -31,7 +31,7 @@
         { name: "Python", image: "/python.png" },
         { name: "Flask", image: "/flask.png" },
         { name: "Javascript", image: "/js.png" },
-        { name: "🦜🔗 LangChain", image: "/langchain.png" },
+        { name: "🦜🔗 LangChain", image: "/langchain.svg" },
         { name: "React", image: "/react.png" },
         { name: "Material UI", image: "/materialui.png" },
         { name: "Gpt4", image: "/gpt4.png" },
@@ -213,6 +213,7 @@
 </section>
 
 <style>
+
   /* Custom Classes If Needed */
 
   /* Project Grid Styles */
@@ -251,11 +252,6 @@
     display: block;
   }
 
-  .project-card.expanded img.active {
-    height: 80%;
-    width: 80%;
-  }
-
   /* Image Container */
   .image-container {
     height: 100%;
@@ -270,11 +266,11 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
     height: 100vh;
-    width: 100vw;
-    overflow: auto;
-    max-width: 100%;
-    max-height: 100%;
+    overflow-y: auto;
+
+    max-height: 100vh;
     z-index: 1;
     grid-row-start: 1;
     grid-column: 1 / -1;
@@ -312,7 +308,7 @@
   }
   .project-card.expanded img {
     height: auto;
-    width: 100%;
+    width: 100vw;
     object-fit: contain;
   }
 
@@ -342,8 +338,7 @@
     text-decoration: none;
   }
 
-  /* Hover Effect */
-  .project-card:hover {
+  .project-card:not(.expanded):hover {
     transform: scale(1.05);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   }
@@ -388,9 +383,11 @@
     }
   }
 
-  @media (max-width: 480px) {
+  @media (max-width: 450px) {
     .project-grid {
       grid-template-columns: 1fr;
+      grid-auto-rows: minmax(400px, auto);
+      grid-gap: 10px;
     }
 
     .project-card {
