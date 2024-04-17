@@ -1,12 +1,4 @@
 <script lang="ts">
-  $: if (projects) {
-    projects.forEach((project) => {
-      if (project.customClass) {
-        console.log(`customClass for ${project.title}: ${project.customClass}`);
-      }
-    });
-  }
-
   import * as animateScroll from "svelte-scrollto";
 
   type Technology = {

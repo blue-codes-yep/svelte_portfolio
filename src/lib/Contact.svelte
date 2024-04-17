@@ -39,7 +39,6 @@
         alert("Failed to send the message, please try again.");
       });
 
-    console.log("Form submitted:", { name, email, subject, message });
   }
 </script>
 

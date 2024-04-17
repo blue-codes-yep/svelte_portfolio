@@ -32,7 +32,7 @@
         : getComputedStyle(document.documentElement).getPropertyValue(
             "--star-color-light",
           );
-    console.log(starColor); 
+
   }
 
   $: particlesConfig = {
@@ -129,12 +129,6 @@
 
     if (particlesContainer.particles && particlesContainer.particles._array) {
       particlesArray = particlesContainer.particles._array;
-    }
-
-    if (particlesArray) {
-      console.log("Particles Loaded:", particlesArray.length);
-    } else {
-      console.log("Particles array is undefined");
     }
 
     if (particlesArray && particlesArray.length > 0) {
